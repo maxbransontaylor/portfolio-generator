@@ -34,7 +34,7 @@ const promptProject = (portfolioData) => {
   Add a New Project
   =================
   `);
-  //why error when portfolioData.projects?
+  //why does the way it looks in the module work?
   if (!portfolioData.projects) {
     portfolioData.projects = [];
   }
@@ -89,6 +89,5 @@ const promptProject = (portfolioData) => {
     });
 };
 promptUser()
-  .then((answers) => console.log(answers))
   .then(promptProject)
   .then((portfolioData) => console.log(portfolioData));
