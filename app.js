@@ -15,16 +15,46 @@ const promptUser = () => {
       type: "input",
       name: "name",
       message: "What is your name?",
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("please enter your name");
+          return false;
+        }
+      },
     },
     {
       type: "input",
       name: "github",
       message: "Enter your Github Username",
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("please enter your github");
+          return false;
+        }
+      },
+    },
+    {
+      type: "confirm",
+      name: "confirmAbout",
+      message:
+        'Would you like to enter some information about yourself for "about" section?',
+      default: true,
     },
     {
       type: "input",
       name: "about",
       message: "Provide some information about yourself:",
+      when: ({ confirmAbout }) => {
+        if (confirmAbout) {
+          return true;
+        } else {
+          return false;
+        }
+      },
     },
   ]);
 };
@@ -45,11 +75,40 @@ const promptProject = (portfolioData) => {
         type: "input",
         name: "name",
         message: "What is the name of your project?",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("please enter your project name");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "description",
         message: "Provide a description of your project (Required)",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("please enter your project description");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "link",
+        message: "Enter the project github link",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("please enter link");
+            return false;
+          }
+        },
       },
       {
         type: "checkbox",
